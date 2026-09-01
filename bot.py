@@ -19,8 +19,8 @@ dp.include_router(handlers_router)
 
 async def main():
     print("=" * 50)
-    print("🤖 投稿机器人已启动")
-    print(f"📋 管理员ID: {ADMIN_IDS}")
+    print("已启动")
+    print(f"管理员: {ADMIN_IDS}")
     print("=" * 50)
     await dp.start_polling(bot)
 

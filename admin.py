@@ -30,40 +30,30 @@ async def cmd_adminhelp(message: types.Message):
         await message.reply("⛔ 只有管理员可以使用此指令")
         return
     
-    help_text = """🤖 管理员帮助面板
+    help_text = """管理员面板
 
 📌 基础功能：
 /start - 查看欢迎菜单
 /adminhelp - 查看管理员帮助
 
 ⚙️ 欢迎语管理：
-/setstart <文案> - 修改 /start 欢迎文案
+/setstart <文案>
 
 ⚙️ 按钮管理：
-/addbtn <按钮名> callback <回复文案> - 添加回调按钮（点击回复文案）
-/addbtn <按钮名> url <链接> - 添加链接按钮（点击直接跳转）
-/addbtn <按钮名> reply <回复文案> - 添加自定义回复按钮
+/addbtn <按钮名> callback <回调指令> - 回调按钮
+/addbtn <按钮名> url <链接> - 链接按钮
+/addbtn <按钮名> reply <回复文案> - 自定义回复
 /delbtn <按钮名> - 删除按钮
 /listbtns - 查看所有按钮
 /clearbtns - 清空所有按钮
 
 ⚙️ 指令管理：
-/addcmd <指令名> <回复文案> - 添加自定义指令（用户发送/xxx时机器人回复指定文案）
+/addcmd <指令名> <文案> - 添加自定义指令
 /delcmd <指令名> - 删除自定义指令
 /listcmds - 查看所有自定义指令
 
 ⚙️ 其他：
 /setgroup - 查看当前审核群 ID
-
-📝 按钮示例：
-/addbtn 投稿 callback 请发送图文
-/addbtn 官网 url https://example.com
-/addbtn 帮助 reply 这是帮助内容
-
-💡 三种按钮类型说明：
-- callback：点击后机器人自动回复指定文案
-- url：点击后直接打开链接（Telegram自动跳转）
-- reply：点击后机器人回复自定义内容
 
 📝 指令示例：
 /addcmd 帮助 这是帮助内容，用户可以发送 /帮助 触发"""
@@ -84,7 +74,7 @@ async def cmd_setstart(message: types.Message):
         return
     text = message.text.replace("/setstart", "").strip()
     if not text:
-        await message.reply("❌ 请提供文案内容\n示例：/setstart 欢迎投稿！")
+        await message.reply("❌ 提供文案内容\n示例：/setstart 欢迎投稿！")
         return
     set_start_message(text)
     await message.reply(f"✅ /start 欢迎文案已更新：\n\n{text}")

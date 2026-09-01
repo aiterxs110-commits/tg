@@ -1,5 +1,4 @@
 from datetime import datetime
-from config import COPYRIGHT_TEXT
 
 def build_submit_message(user, text: str = "") -> str:
     username = f"@{user.username}" if user.username else f"ID: {user.id}"
@@ -10,10 +9,7 @@ def build_submit_message(user, text: str = "") -> str:
 时间：{timestamp}
 ───
 
-{text if text else "（无文字内容）"}
-
-───
-{COPYRIGHT_TEXT}"""
+{text if text else "（无文字内容）"}"""
     return msg
 
 def is_admin(user_id: int) -> bool:
